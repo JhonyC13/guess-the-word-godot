@@ -11,5 +11,5 @@ position = Vector2(563, 166)
 texture = ExtResource("1_qyjep")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(292, 330)
+position = Vector2(896, 434)
 texture = ExtResource("1_qyjep")
