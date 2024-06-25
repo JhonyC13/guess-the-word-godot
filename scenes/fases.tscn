@@ -109,3 +109,5 @@ text = "Quinto Imposto"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/fase1" to="." method="_on_fase_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/fase2" to="." method="_on_fase_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/fase3" to="." method="_on_fase_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/fase4" to="." method="_on_fase_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/fase5" to="." method="_on_fase_5_pressed"]

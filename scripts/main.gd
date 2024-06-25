@@ -37,6 +37,7 @@ var esta_certa := false #serve para saber se a letra enviada estava correta
 var cont_anim := 0 #contador para saber qual animação do fiscal se aproximando é para rodar
 var cont_acertos = 0 #contador que armazena o número de acertos
 var primeira_roleta = true #serve para saber se essa é a primeira roleta que apareceu
+var pontuacao_fase := 0 #armazena a pontuação que ele fez nessa fase, para, caso o jogador esgote todas as chances, esse número ser subtraido da pontuação global.
 
 signal letras_usadas_aumentou #sinal para saber quando o jogador usa uma letra nova
 
@@ -45,7 +46,9 @@ func _ready():
 	
 		#adiciona as informações principais que variam em cada fase
 		palavra = Global.palavra_fase
+		label_dica.text = Global.dica_fase
 		bg_pattern.texture = Global.bg_pattern
+		
 		if bg_pattern.texture == preload("res://assets/BG_pattern.png"):
 			bg_pattern.material.set_shader_parameter("speed", 0.1)
 		elif bg_pattern.texture == preload("res://assets/BG_pattern2.png"):
@@ -151,6 +154,7 @@ func enviar_letra():
 			animation.play("pontuacao_aumentou")
 			await animation.animation_finished
 			Global.pontuacao += Global.pontosLetra
+			pontuacao_fase += Global.pontosLetra
 			Global.score_changed.emit()
 			await hud.moedas_particulas.get_animation_player().animation_finished
 	
@@ -210,6 +214,7 @@ func enviar_letra():
 		var fim_de_jogo = cena_fim_de_jogo.instantiate() #instancia a tela de fim de jogo
 		add_child(fim_de_jogo)
 		
+		Global.pontuacao -= pontuacao_fase
 		
 	letra_enviada.text = ""
 	
