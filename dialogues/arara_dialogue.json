@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<gd.change_portrait(0)>>\nTESTE DO GITHoje era o último dia! E o pior é que eu nem lembro quais eram os impostos que eu tinha que pagar...\nJá sei!\nEu posso usar meu computador para pesquisar os impostos que eu tenho que pagar.\nAh não! aqui nas câmeras da para ver que o fiscal já está aqui na porta de casa!\nMelhor eu ser rápida!\n<<gd.end_dialogue()>>",
+		"body": "<<gd.change_portrait(0)>>\nTESTE DEFINITIVOHoje era o último dia! E o pior é que eu nem lembro quais eram os impostos que eu tinha que pagar...\nJá sei!\nEu posso usar meu computador para pesquisar os impostos que eu tenho que pagar.\nAh não! aqui nas câmeras da para ver que o fiscal já está aqui na porta de casa!\nMelhor eu ser rápida!\n<<gd.end_dialogue()>>",
 		"position": {
 			"x": 788,
 			"y": 62

@@ -27,7 +27,7 @@ func _ready():
 
 func _on_fase_1_pressed():
 	Global.fase_atual = 1
-	Global.palavra_fase = ["T", "E", "S", "T", "E"]
+	Global.palavra_fase = ["R", "E", "N", "D", "A"]
 	Global.bg_pattern = preload("res://assets/BG_pattern.png")
 	TransitionManager.goto_scene("main", "closing")
 
