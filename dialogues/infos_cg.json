@@ -1,0 +1,22 @@
+[
+	{
+		"title": "IFMS",
+		"tags": "",
+		"body": "<<gd.change_portrait(0)>>\nEsta é a unidade do IFMS de Campo Grande.\nAqui são ofertados cursos profissionalizantes técnicos, de graduação e pós-graduação.\nTodo dinheiro para manter professores, estudantes e cursos vêm dos impostos.\nQuanto menos impostos investidos, mais limitado será o investimento em educação.\n[[go|parte2]]",
+		"position": {
+			"x": 698,
+			"y": -438
+		},
+		"colorID": 0
+	},
+	{
+		"title": "parte2",
+		"tags": "",
+		"body": "Esta é a parte2 do diálogo...\nFim\n<< gd.end_dialogue()>>",
+		"position": {
+			"x": 1094,
+			"y": -643
+		},
+		"colorID": 0
+	}
+]

@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://bppo5p6w5lolt"]
+
+[ext_resource type="Texture2D" uid="uid://d3c45nopd2nrt" path="res://assets/tela_mural.png" id="1_8yk4w"]
+[ext_resource type="Script" path="res://scripts/tela_mural.gd" id="1_a6i8b"]
+[ext_resource type="FontFile" uid="uid://x0xlcv4eda32" path="res://fonts/Potato Cake.otf" id="2_c61jb"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="4_lppv8"]
+
+[sub_resource type="Theme" id="Theme_nidce"]
+Label/colors/font_color = Color(1, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("2_c61jb")
+
+[sub_resource type="Theme" id="Theme_wttps"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("2_c61jb")
+
+[sub_resource type="Theme" id="Theme_3qtvi"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("4_lppv8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8caj"]
+bg_color = Color(0, 0, 0, 0.419608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb661"]
+bg_color = Color(0.408329, 0.408329, 0.408329, 0.419608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lvgw"]
+bg_color = Color(1, 1, 1, 0.419608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usffc"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 0.419608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="tela_mural" type="Node2D"]
+script = ExtResource("1_a6i8b")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("1_8yk4w")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 222.0
+offset_right = 494.0
+offset_bottom = 255.0
+rotation = -0.0781883
+theme = SubResource("Theme_nidce")
+text = "IMPORTANTE"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 365.0
+offset_top = 265.0
+offset_right = 494.0
+offset_bottom = 379.0
+rotation = -0.137887
+pivot_offset = Vector2(47, 45)
+theme = SubResource("Theme_wttps")
+text = "Lembrar de pagar os impostos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 70)
+offset_left = 89.0
+offset_top = 499.0
+offset_right = 239.0
+offset_bottom = 569.0
+theme = SubResource("Theme_3qtvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h8caj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mb661")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3lvgw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_usffc")
+text = "Voltar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

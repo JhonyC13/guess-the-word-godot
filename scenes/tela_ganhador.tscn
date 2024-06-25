@@ -1,0 +1,168 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpj3vnaiim2k5"]
+
+[ext_resource type="Script" path="res://scripts/tela_ganhador.gd" id="1_hv117"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="2_sk6kl"]
+
+[sub_resource type="Theme" id="Theme_v8xct"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 51
+Label/fonts/font = ExtResource("2_sk6kl")
+
+[sub_resource type="Theme" id="Theme_v7pr5"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 39
+Label/fonts/font = ExtResource("2_sk6kl")
+
+[sub_resource type="Theme" id="Theme_djwv4"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("2_sk6kl")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bhbr"]
+bg_color = Color(0.156863, 0.47451, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0.310386, 0.764082, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orc6t"]
+bg_color = Color(0.156863, 0.47451, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0.427451, 0.980392, 0.188235)
+shadow_size = 30
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2bsl"]
+bg_color = Color(0.156863, 0.47451, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0.310386, 0.764082, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhqcq"]
+bg_color = Color(0.156863, 0.47451, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0.310386, 0.764082, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[node name="tela_ganhador" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_hv117")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -436.0
+offset_top = -177.0
+offset_right = 436.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="label_mensagem" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_v8xct")
+text = "Parabens! Voce conseguiu pagar esse imposto!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="label_pontuacao" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_v7pr5")
+text = "Sua pontuação final: 000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="botao_voltar" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_djwv4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7bhbr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_orc6t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c2bsl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yhqcq")
+text = "Voltar para a tela do computador"
+
+[connection signal="pressed" from="Control/VBoxContainer/botao_voltar" to="." method="_on_botao_voltar_pressed"]

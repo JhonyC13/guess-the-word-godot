@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chq7sg4kb5fue"]
+
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="1_jamop"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.728822, 0.728822, 0.728822, 1)
+Button/colors/font_hover_color = Color(0.687215, 0.687215, 0.687215, 1)
+Button/colors/font_hover_pressed_color = Color(0.355314, 0.355314, 0.355314, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_jamop")

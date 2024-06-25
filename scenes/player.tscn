@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cduhcb8p7ssu2"]
+
+[ext_resource type="Texture2D" uid="uid://cviuuxjcaqu1l" path="res://assets/arara_desenho.png" id="1_ag61n"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_e15ao"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8lm5"]
+radius = 69.0
+height = 196.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_e15ao")
+
+[node name="arara" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_ag61n")
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+position = Vector2(14, 32)
+shape = SubResource("CapsuleShape2D_r8lm5")

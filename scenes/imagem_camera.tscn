@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://thgtinhfcopk"]
+
+[ext_resource type="Script" path="res://scripts/imagem_camera.gd" id="1_3vwnk"]
+[ext_resource type="Texture2D" uid="uid://cnk42mgabkmbm" path="res://assets/imagem_camera.png" id="1_u1e8p"]
+[ext_resource type="Texture2D" uid="uid://fud7gwyt6kkh" path="res://assets/circulo_branco.png" id="2_rasy6"]
+[ext_resource type="Texture2D" uid="uid://cebud71nxgql2" path="res://assets/tucano_desenho.png" id="3_norur"]
+[ext_resource type="Texture2D" uid="uid://cviuuxjcaqu1l" path="res://assets/arara_desenho.png" id="5_tjd6d"]
+
+[sub_resource type="Animation" id="Animation_m3k52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circulo_vermelho:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("imagem_fundo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rw1mn"]
+resource_name = "piscando"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circulo_vermelho:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("imagem_fundo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.792157, 0.862745, 1, 1), Color(1, 1, 1, 1), Color(0.784314, 0.784314, 0.784314, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocbcs"]
+_data = {
+"RESET": SubResource("Animation_m3k52"),
+"piscando": SubResource("Animation_rw1mn")
+}
+
+[node name="imagem_camera" type="Node2D"]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_3vwnk")
+
+[node name="imagem_fundo" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_u1e8p")
+
+[node name="circulo_vermelho" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-65, -43)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_rasy6")
+
+[node name="fiscal" type="Sprite2D" parent="."]
+position = Vector2(-84.8, 40.8)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_norur")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(204.555, 188.784, 582.413, 405.878)
+
+[node name="arara" type="Sprite2D" parent="."]
+position = Vector2(-52.8, -19.2)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_tjd6d")
+region_enabled = true
+region_rect = Rect2(-22.1097, 155.848, 903.496, 586.387)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocbcs")
+}
+autoplay = "piscando"

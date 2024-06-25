@@ -1,0 +1,72 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<gd.change_portrait(0)>>\nOlá, vamos testar estes textos?\n<<gd.change_portrait(1)>>\nPode ser, vamos lá.\n[[go|Escolha]]",
+		"position": {
+			"x": 334,
+			"y": 218
+		},
+		"colorID": 1
+	},
+	{
+		"title": "Escolha",
+		"tags": "",
+		"body": "<<gd.change_portrait(0)>>\nFaça uma escolha:\n[[Café|ok_opt]]\n[[Chá|cancelar_opt]]",
+		"position": {
+			"x": 676,
+			"y": 260
+		},
+		"colorID": 0
+	},
+	{
+		"title": "ok_opt",
+		"tags": "",
+		"body": "Você escolheu café... parabéns.\n<<gd.set_var('a',true)>>\n[[go|final|]]",
+		"position": {
+			"x": 563,
+			"y": -131
+		},
+		"colorID": 0
+	},
+	{
+		"title": "cancelar_opt",
+		"tags": "",
+		"body": "Você escolheu chá, mas é café.\n<<gd.set_var('a',false)>>\n[[go|final]]",
+		"position": {
+			"x": 1032,
+			"y": -13
+		},
+		"colorID": 0
+	},
+	{
+		"title": "final",
+		"tags": "",
+		"body": "Tchau, até a próxima.\n<<if gd.get_var('a'): gd.change_node('final1')>>\n<<else: gd.change_node('final2')>>\n[[skip|final1]]\n[[skip|final2]]",
+		"position": {
+			"x": 927,
+			"y": -308
+		},
+		"colorID": 0
+	},
+	{
+		"title": "final1",
+		"tags": "",
+		"body": "<<gd.change_portrait(1)>>\nFinal 1 selecionado\n<<gd.end_dialogue()>>",
+		"position": {
+			"x": 595,
+			"y": -636
+		},
+		"colorID": 0
+	},
+	{
+		"title": "final2",
+		"tags": "",
+		"body": "<<gd.change_portrait(0)>>\nFinal 2 selecionado\n<<gd.end_dialogue()>>",
+		"position": {
+			"x": 1273,
+			"y": -620
+		},
+		"colorID": 0
+	}
+]

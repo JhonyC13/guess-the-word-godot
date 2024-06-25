@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<gd.change_portrait(0)>>\nO Estado de Grama Fina sofreu com uma terrível tragédia: uma doença altamente contagiosa atacou praticamente todo cidadão. \n<<gd.change_portrait(1)>>\nEm uma atitude desesperada, o governo decidiu abolir a cobrança de todos os tipos de impostos. \nNo início, todos gostaram da ideia, mas depois de um tempo não havia verba para manter hospitais, escolas, transporte, ruas, profissionais, dentre outros serviços públicos.\n<<gd.change_portrait(2)>>\nHoje, a situação se agrava e a população COMEÇA a se revoltar...aumento de doenças, criminalidade, falta de infra-estrutura e o ódio toma conta das ruas. \n<<gd.change_portrait(3)>>\nDiante da desesperança, você foi contratado como última esperança para solucionar o problema de arrecadação antes que seja tarde demais...\nSua missão: Encontrar indícios de sonegação ou desvio de impostos e com a ajuda de seus amigos encontrar uma solução para o caos no Estado.",
+		"position": {
+			"x": 663,
+			"y": -599
+		},
+		"colorID": 0
+	}
+]

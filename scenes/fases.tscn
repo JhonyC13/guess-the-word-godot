@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnmav3ryokdt1"]
+
+[ext_resource type="Script" path="res://scripts/fases.gd" id="1_a0l0q"]
+[ext_resource type="Texture2D" uid="uid://s3e3ruef3j5a" path="res://assets/tela_pc.png" id="2_46ccs"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="3_8uoc7"]
+[ext_resource type="PackedScene" uid="uid://dks26u15bojov" path="res://scenes/hud.tscn" id="3_f8e3m"]
+[ext_resource type="Theme" uid="uid://chq7sg4kb5fue" path="res://themes/fases_button_text.tres" id="4_al5mx"]
+[ext_resource type="StyleBox" uid="uid://d11oa5b8s76rf" path="res://themes/fases_button.tres" id="5_2dd1f"]
+
+[sub_resource type="Theme" id="Theme_h6o1t"]
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.603922)
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("3_8uoc7")
+
+[node name="fases" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_a0l0q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_46ccs")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -121.0
+offset_right = 221.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_h6o1t")
+text = "Impostos a serem Pagos:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+
+[node name="fase1" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme = ExtResource("4_al5mx")
+theme_override_styles/normal = ExtResource("5_2dd1f")
+theme_override_styles/hover = ExtResource("5_2dd1f")
+theme_override_styles/pressed = ExtResource("5_2dd1f")
+theme_override_styles/focus = ExtResource("5_2dd1f")
+text = "Primeiro Imposto"
+
+[node name="fase2" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme = ExtResource("4_al5mx")
+theme_override_styles/normal = ExtResource("5_2dd1f")
+theme_override_styles/hover = ExtResource("5_2dd1f")
+theme_override_styles/pressed = ExtResource("5_2dd1f")
+theme_override_styles/focus = ExtResource("5_2dd1f")
+text = "Segundo Imposto"
+
+[node name="fase3" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme = ExtResource("4_al5mx")
+theme_override_styles/normal = ExtResource("5_2dd1f")
+theme_override_styles/hover = ExtResource("5_2dd1f")
+theme_override_styles/pressed = ExtResource("5_2dd1f")
+theme_override_styles/focus = ExtResource("5_2dd1f")
+text = "Terceiro Imposto"
+
+[node name="fase4" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme = ExtResource("4_al5mx")
+theme_override_styles/normal = ExtResource("5_2dd1f")
+theme_override_styles/hover = ExtResource("5_2dd1f")
+theme_override_styles/pressed = ExtResource("5_2dd1f")
+theme_override_styles/focus = ExtResource("5_2dd1f")
+text = "Quarto Imposto"
+
+[node name="fase5" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme = ExtResource("4_al5mx")
+theme_override_styles/normal = ExtResource("5_2dd1f")
+theme_override_styles/hover = ExtResource("5_2dd1f")
+theme_override_styles/pressed = ExtResource("5_2dd1f")
+theme_override_styles/focus = ExtResource("5_2dd1f")
+text = "Quinto Imposto"
+
+[node name="HUD" parent="." instance=ExtResource("3_f8e3m")]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/fase1" to="." method="_on_fase_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/fase2" to="." method="_on_fase_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/fase3" to="." method="_on_fase_3_pressed"]

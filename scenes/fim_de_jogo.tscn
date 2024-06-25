@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0qw3rfv574m3"]
+
+[ext_resource type="Script" path="res://scripts/fim_de_jogo.gd" id="1_7eknf"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="2_j8ja5"]
+[ext_resource type="Texture2D" uid="uid://cgoxgoenombvt" path="res://assets/grades_prisao.png" id="3_xdl8t"]
+
+[sub_resource type="Theme" id="Theme_n0hin"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("2_j8ja5")
+
+[sub_resource type="Theme" id="Theme_jiyhq"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_j8ja5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0jmy"]
+bg_color = Color(0.156863, 0.47451, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.156863, 0.47451, 1, 0.152941)
+shadow_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6gxd"]
+bg_color = Color(0.156863, 0.47451, 1, 0.898039)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.310386, 0.764082, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.156863, 0.47451, 1, 0.152941)
+shadow_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlbcs"]
+bg_color = Color(0.2, 0.266667, 1, 0.811765)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(2.42579e-05, 0.242312, 0.703483, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.156863, 0.47451, 1, 0.152941)
+shadow_size = 100
+
+[node name="fim_de_jogo" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_7eknf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_n0hin")
+text = "Você não conseguiu pagar os impostos!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_xdl8t")
+stretch_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jiyhq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n0jmy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6gxd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qlbcs")
+text = "Tentar Novamente"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

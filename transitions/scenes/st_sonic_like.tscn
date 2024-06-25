@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=3 uid="uid://celg6hr30oqia"]
+
+[ext_resource type="Script" path="res://transitions/scenes/st_sonic_like.gd" id="1_e28xv"]
+[ext_resource type="Texture2D" uid="uid://dsfo1dd6oxjxd" path="res://transitions/scenes/st_sonic.png" id="2_2wyeh"]
+[ext_resource type="AudioStream" uid="uid://chmqs1ofgjfm0" path="res://sfx/592581__newlocknew__stone-slab-impactwith-a-crunch_217lrs.wav" id="3_bdfli"]
+
+[sub_resource type="Animation" id="Animation_j2kdt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRectLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-83, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRectDown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440, -30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g0w5t"]
+resource_name = "fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRectLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-83, -30), Vector2(-959, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRectDown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(440, -30), Vector2(440, 355), Vector2(440, 751)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgol1"]
+_data = {
+"RESET": SubResource("Animation_j2kdt"),
+"fade": SubResource("Animation_g0w5t")
+}
+
+[node name="StSonicLike" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_e28xv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kgol1")
+}
+
+[node name="TextureRectDown" type="TextureRect" parent="."]
+modulate = Color(0.941176, 0.282353, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -678.0
+offset_right = 678.0
+offset_bottom = 6.00159
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.57042
+pivot_offset = Vector2(422, 311)
+texture = ExtResource("2_2wyeh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRectLeft" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -354.0
+offset_right = 914.0
+offset_bottom = 405.0
+grow_vertical = 2
+pivot_offset = Vector2(388, 311)
+texture = ExtResource("2_2wyeh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 100
+text = "Campo Grande"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bdfli")
+volume_db = -10.646
+pitch_scale = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.4
+one_shot = true
+
+[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

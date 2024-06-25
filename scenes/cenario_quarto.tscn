@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmxewr6v700j4"]
+
+[ext_resource type="Script" path="res://scripts/cenario_quarto.gd" id="1_q88nc"]
+[ext_resource type="Texture2D" uid="uid://0tp3uqd4upcf" path="res://assets/cenario_quarto.jpeg" id="1_r7dix"]
+[ext_resource type="PackedScene" uid="uid://cduhcb8p7ssu2" path="res://scenes/player.tscn" id="2_2tu2e"]
+[ext_resource type="PackedScene" uid="uid://bw634pcriwofq" path="res://scenes/exclamacao.tscn" id="3_7o4ag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2q53"]
+size = Vector2(238.125, 147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfpj3"]
+size = Vector2(140, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ursgn"]
+size = Vector2(720.75, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7a1x"]
+size = Vector2(714, 145)
+
+[node name="cenario_quarto" type="Node2D"]
+script = ExtResource("1_q88nc")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.90413, 1.90588)
+texture = ExtResource("1_r7dix")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_2tu2e")]
+position = Vector2(539, 471)
+
+[node name="area_quadro" type="Area2D" parent="."]
+position = Vector2(816, 250)
+
+[node name="colisao_quadro" type="CollisionShape2D" parent="area_quadro"]
+position = Vector2(5.9375, 27.5)
+shape = SubResource("RectangleShape2D_s2q53")
+
+[node name="area_pc" type="Area2D" parent="."]
+position = Vector2(299, 312)
+
+[node name="colisao_pc" type="CollisionShape2D" parent="area_pc"]
+shape = SubResource("RectangleShape2D_wfpj3")
+debug_color = Color(0.894118, 0.301961, 0.282353, 0.419608)
+
+[node name="exclamacao_quadro" parent="." instance=ExtResource("3_7o4ag")]
+position = Vector2(823, 186)
+
+[node name="exclamacao_pc" parent="." instance=ExtResource("3_7o4ag")]
+visible = false
+position = Vector2(301, 243)
+
+[node name="barreiras" type="Node2D" parent="."]
+
+[node name="barreira" type="StaticBody2D" parent="barreiras"]
+position = Vector2(931, 623)
+rotation = -0.210255
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira"]
+shape = SubResource("RectangleShape2D_ursgn")
+
+[node name="barreira2" type="StaticBody2D" parent="barreiras"]
+position = Vector2(237, 625)
+rotation = 0.221093
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira2"]
+shape = SubResource("RectangleShape2D_ursgn")
+
+[node name="barreira3" type="StaticBody2D" parent="barreiras"]
+position = Vector2(1199, 294)
+rotation = 1.58033
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira3"]
+shape = SubResource("RectangleShape2D_ursgn")
+
+[node name="barreira4" type="StaticBody2D" parent="barreiras"]
+position = Vector2(-61, 261)
+rotation = 1.58033
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira4"]
+shape = SubResource("RectangleShape2D_ursgn")
+
+[node name="barreira5" type="StaticBody2D" parent="barreiras"]
+position = Vector2(235, 206)
+rotation = -0.101577
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira5"]
+position = Vector2(0.386428, 6.07048)
+shape = SubResource("RectangleShape2D_u7a1x")
+
+[node name="barreira6" type="StaticBody2D" parent="barreiras"]
+position = Vector2(895, 212)
+rotation = 0.128184
+
+[node name="colisao_barreira" type="CollisionShape2D" parent="barreiras/barreira6"]
+position = Vector2(-0.224733, 6.0786)
+shape = SubResource("RectangleShape2D_u7a1x")
+
+[connection signal="body_entered" from="area_quadro" to="." method="_on_area_quadro_body_entered"]
+[connection signal="body_entered" from="area_pc" to="." method="_on_area_pc_body_entered"]

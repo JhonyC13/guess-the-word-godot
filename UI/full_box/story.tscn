@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvnou8sgpgd2r"]
+
+[ext_resource type="Script" path="res://UI/full_box/story.gd" id="1_02ipa"]
+[ext_resource type="Texture2D" uid="uid://bumu0bh5si5p7" path="res://UI/full_box/frame.jpg" id="2_rgh7j"]
+[ext_resource type="AudioStream" uid="uid://dkinuyq8il4au" path="res://musics/725580__tenonic__marble-run-piano-intro.mp3" id="3_f6jr0"]
+
+[sub_resource type="Animation" id="Animation_adsaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.523599]
+}
+
+[sub_resource type="Animation" id="Animation_vbrhl"]
+resource_name = "shake"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.261799, 0.0, 0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ip38j"]
+_data = {
+"RESET": SubResource("Animation_adsaw"),
+"shake": SubResource("Animation_vbrhl")
+}
+
+[node name="Historia" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_02ipa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -69.0
+offset_right = 1295.0
+offset_bottom = 758.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rgh7j")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 75.0
+offset_right = 1023.0
+offset_bottom = 313.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_font_sizes/font_size = 35
+autowrap_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 350.0
+offset_right = 1030.0
+offset_bottom = 573.0
+rotation = -0.523599
+pivot_offset = Vector2(451, 115)
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ip38j")
+}
+autoplay = "shake"
+speed_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f6jr0")
+autoplay = true
+
+[connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]
