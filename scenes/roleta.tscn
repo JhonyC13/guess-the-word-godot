@@ -1,13 +1,13 @@
 [gd_scene load_steps=29 format=3 uid="uid://djp6cguko3lkp"]
 
-[ext_resource type="Texture2D" uid="uid://8k2sss7grlsm" path="res://assets/roleta.png" id="1_hymec"]
-[ext_resource type="Script" path="res://scripts/roleta_teste.gd" id="1_y8kly"]
-[ext_resource type="Texture2D" uid="uid://bxnqoq6cwvjtq" path="res://assets/seta_roleta.png" id="2_s50d7"]
-[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="4_2eamg"]
-[ext_resource type="AudioStream" uid="uid://cd4n0l5n511w7" path="res://sfx/476816__victorium183__menuchange.wav" id="5_gl6cl"]
-[ext_resource type="Texture2D" uid="uid://2ktl6ixtbmdv" path="res://assets/pilha_moedas.png" id="6_8hbj2"]
-[ext_resource type="AudioStream" uid="uid://dv2jpnijwyndp" path="res://sfx/roullete_win_sfx.MP3" id="7_8p73j"]
-[ext_resource type="AudioStream" uid="uid://blvi1kancvjnf" path="res://sfx/roullete_coins_sfx.MP3" id="7_ytg2v"]
+[ext_resource type="Script" path="res://scripts/roleta_teste.gd" id="1_hfehj"]
+[ext_resource type="Texture2D" uid="uid://8k2sss7grlsm" path="res://assets/roleta.png" id="2_6tfko"]
+[ext_resource type="Texture2D" uid="uid://bxnqoq6cwvjtq" path="res://assets/seta_roleta.png" id="3_cmjof"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="4_2mrxl"]
+[ext_resource type="Texture2D" uid="uid://2ktl6ixtbmdv" path="res://assets/pilha_moedas.png" id="5_o7fs2"]
+[ext_resource type="AudioStream" uid="uid://cd4n0l5n511w7" path="res://sfx/476816__victorium183__menuchange.wav" id="6_jgiiw"]
+[ext_resource type="AudioStream" uid="uid://blvi1kancvjnf" path="res://sfx/roullete_coins_sfx.MP3" id="7_va8mo"]
+[ext_resource type="AudioStream" uid="uid://dv2jpnijwyndp" path="res://sfx/roullete_win_sfx.MP3" id="8_e8hsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouipg"]
 radius = 83.6693
@@ -37,7 +37,7 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 64
-Button/fonts/font = ExtResource("4_2eamg")
+Button/fonts/font = ExtResource("4_2mrxl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqmc6"]
 bg_color = Color(0.306923, 0.306923, 0.306923, 1)
@@ -105,7 +105,7 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/shadow_offset_x = 3
 Label/constants/shadow_offset_y = 3
 Label/font_sizes/font_size = 40
-Label/fonts/font = ExtResource("4_2eamg")
+Label/fonts/font = ExtResource("4_2mrxl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywtnb"]
 content_margin_left = 15.0
@@ -133,7 +133,7 @@ offsets = PackedFloat32Array(0, 0.207729, 0.78744, 1)
 colors = PackedColorArray(0.658824, 0.658824, 0.658824, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="Theme" id="Theme_b5s62"]
-default_font = ExtResource("4_2eamg")
+default_font = ExtResource("4_2mrxl")
 default_font_size = 128
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(1, 0.819608, 0.552941, 1)
@@ -326,8 +326,8 @@ _data = {
 "ganhou": SubResource("Animation_vt2jm")
 }
 
-[node name="roleta_teste" type="Node2D"]
-script = ExtResource("1_y8kly")
+[node name="roleta" type="Node2D"]
+script = ExtResource("1_hfehj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1184.0
@@ -339,7 +339,7 @@ position = Vector2(587, 320)
 scale = Vector2(0.8, 0.8)
 
 [node name="textura" type="Sprite2D" parent="roleta"]
-texture = ExtResource("1_hymec")
+texture = ExtResource("2_6tfko")
 offset = Vector2(-12, 10)
 
 [node name="Azul" type="Area2D" parent="roleta" groups=["azul"]]
@@ -380,7 +380,7 @@ scale = Vector2(0.35, 0.35)
 collision_mask = 2
 
 [node name="textura" type="Sprite2D" parent="seta_roleta"]
-texture = ExtResource("2_s50d7")
+texture = ExtResource("3_cmjof")
 offset = Vector2(8, 1)
 
 [node name="raycast_seta" type="RayCast2D" parent="seta_roleta"]
@@ -431,7 +431,7 @@ lifetime = 5.0
 one_shot = true
 speed_scale = 1.5
 explosiveness = 0.56
-texture = ExtResource("6_8hbj2")
+texture = ExtResource("5_o7fs2")
 direction = Vector2(0, -1)
 gravity = Vector2(0, 200)
 initial_velocity_min = 150.0
@@ -460,15 +460,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="roleta_sfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_gl6cl")
+stream = ExtResource("6_jgiiw")
 volume_db = -8.0
 
 [node name="coins_sfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ytg2v")
+stream = ExtResource("7_va8mo")
 volume_db = -18.0
 
 [node name="win_sfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_8p73j")
+stream = ExtResource("8_e8hsw")
 volume_db = -10.0
 
 [node name="animation" type="AnimationPlayer" parent="."]

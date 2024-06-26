@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dks26u15bojov"]
+[gd_scene load_steps=8 format=3 uid="uid://dks26u15bojov"]
 
 [ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="1_37x3w"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_4528l"]
 [ext_resource type="Texture2D" uid="uid://2ktl6ixtbmdv" path="res://assets/pilha_moedas.png" id="2_exr3f"]
 [ext_resource type="PackedScene" uid="uid://cmvjj1dvamu2c" path="res://particles/moedas_particulas.tscn" id="4_kswih"]
+[ext_resource type="AudioStream" uid="uid://sd601kt2jxyx" path="res://sfx/money_sfx.mp3" id="5_6suoa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxnj4"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.333333)
@@ -90,3 +91,7 @@ vertical_alignment = 1
 
 [node name="moedas_particulas" parent="." instance=ExtResource("4_kswih")]
 position = Vector2(900, 50)
+
+[node name="money_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6suoa")
+volume_db = -5.0
