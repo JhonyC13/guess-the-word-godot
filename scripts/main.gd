@@ -1,5 +1,7 @@
 extends Node2D
 
+var variavel_teste_commit_linux
+
 @onready var bg_pattern = $jogo/BG_pattern
 @onready var letra_enviada = $jogo/Control/container_jogo/HBoxContainer/letra_enviada
 @onready var botao_enviar = $jogo/Control/container_jogo/HBoxContainer/botao_enviar
