@@ -8,22 +8,21 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#match Global.maior_fase_desbloqueada:
-		#1:
-			#fase_2.disabled = true
-			#fase_3.disabled = true
-			#fase_4.disabled = true
-			#fase_5.disabled = true
-		#2:
-			#fase_3.disabled = true
-			#fase_4.disabled = true
-			#fase_5.disabled = true
-		#3:
-			#fase_4.disabled = true
-			#fase_5.disabled = true
-		#4:
-			#fase_5.disabled = true
-	pass
+	match Global.maior_fase_desbloqueada:
+		1:
+			fase_2.disabled = true
+			fase_3.disabled = true
+			fase_4.disabled = true
+			fase_5.disabled = true
+		2:
+			fase_3.disabled = true
+			fase_4.disabled = true
+			fase_5.disabled = true
+		3:
+			fase_4.disabled = true
+			fase_5.disabled = true
+		4:
+			fase_5.disabled = true
 
 func _on_fase_1_pressed():
 	Global.fase_atual = 1

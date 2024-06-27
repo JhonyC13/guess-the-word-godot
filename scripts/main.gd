@@ -7,6 +7,7 @@ extends Node2D
 @onready var container_letras_vazias = $jogo/Control/container_jogo/container_letras_vazias
 @onready var container_letras_usadas = $jogo/Control/container_letras_usadas
 @onready var label_letras_usadas = $jogo/Control/container_letras_usadas/VBoxContainer/label_letras_usadas
+@onready var label_fala_personagem = $jogo/Control/label_fala_personagem
 @onready var label_pontuacao_aumentou = $jogo/label_pontuacao_aumentou
 @onready var animation = $animation
 @onready var cenario_guarda = $cenario_guarda
@@ -23,6 +24,18 @@ extends Node2D
 	"aproximando_2",
 	"aproximando_3",
 	"aproximando_4"
+]
+
+@onready var frases_acertou = [
+	"Boa! É isso aí!",
+	"Tá quase lá!",
+	"Mais uma pra conta!",
+]
+
+@onready var frases_errou = [
+	"Ai não!",
+	"Ele ta chegando perto!",
+	"Putz!",
 ]
 
 @onready var letras_usadas = [] #armazena as letras que o jogador utilizou
@@ -149,6 +162,12 @@ func enviar_letra():
 			letra_enviada.editable = false
 			botao_enviar.disabled = true
 			
+			label_fala_personagem.text = frases_acertou[randi_range(0, frases_acertou.size()-1)]
+			var balao_fala_fadein = get_tree().create_tween()
+			balao_fala_fadein.tween_property(label_fala_personagem, "modulate:a", 1, 0.5)
+			await get_tree().create_timer(1.5).timeout
+			var balao_fala_fadeout = get_tree().create_tween()
+			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
 			label_pontuacao_aumentou.text = "+" + str(Global.pontosLetra)
 			label_pontuacao_aumentou.global_position = letras_vazias[i].global_position
 			animation.play("pontuacao_aumentou")
@@ -165,7 +184,6 @@ func enviar_letra():
 			letra_enviada.editable = false
 			letra_enviada.release_focus()
 			botao_enviar.disabled = true
-			cenario_guarda.show()
 			var fade_tween = get_tree().create_tween() #tween para fazer um fade in na cena do guarda/fiscal
 			fade_tween.tween_property(cenario_guarda, "modulate:a", 1, 0.7)
 			await fade_tween.finished
@@ -177,10 +195,16 @@ func enviar_letra():
 			fadeout_tween.tween_property(cenario_guarda, "modulate:a", 0, 0.5)
 			await fadeout_tween.finished
 			
+			label_fala_personagem.text = frases_errou[randi_range(0, frases_errou.size()-1)]
+			var balao_fala_fadein = get_tree().create_tween()
+			balao_fala_fadein.tween_property(label_fala_personagem, "modulate:a", 1, 0.5)
+			await get_tree().create_timer(1.5).timeout
+			var balao_fala_fadeout = get_tree().create_tween()
+			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
+			
 			imagem_camera.chances_gastas += 1
 			imagem_camera.atualizar_posicao() #atualiza a posição do fiscal na imagem da camera
 			
-			cenario_guarda.hide()
 			cont_anim += 1
 			botao_enviar.disabled = false
 			letra_enviada.editable = true

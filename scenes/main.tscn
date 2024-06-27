@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://65i3770f51i5"]
+[gd_scene load_steps=40 format=3 uid="uid://65i3770f51i5"]
 
 [ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="1_k2h5i"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_uktc2"]
@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dks26u15bojov" path="res://scenes/hud.tscn" id="6_fd74w"]
 [ext_resource type="StyleBox" uid="uid://oxywqliom21b" path="res://themes/label_box.tres" id="7_c7dwp"]
 [ext_resource type="PackedScene" uid="uid://cuvbeu4gfc0d0" path="res://scenes/cenario_guarda.tscn" id="9_6mpf6"]
+[ext_resource type="Texture2D" uid="uid://bmluq7tjoegev" path="res://assets/balao_fala.png" id="10_hccvh"]
+[ext_resource type="Texture2D" uid="uid://cviuuxjcaqu1l" path="res://assets/arara_desenho.png" id="10_nsx4q"]
 [ext_resource type="PackedScene" uid="uid://thgtinhfcopk" path="res://scenes/imagem_camera.tscn" id="11_q3ont"]
+[ext_resource type="FontFile" uid="uid://cx63wo82a2xe3" path="res://fonts/Hey Comic.ttf" id="11_uqqiq"]
 [ext_resource type="AudioStream" uid="uid://cerh5pq143o45" path="res://sfx/point_sfx1.mp3" id="13_nwvon"]
 [ext_resource type="AudioStream" uid="uid://dcxx405il1vpa" path="res://sfx/point_sfx2.mp3" id="14_ns1gl"]
 [ext_resource type="AudioStream" uid="uid://doqr4ln63nx21" path="res://sfx/point_sfx3.mp3" id="15_25duh"]
@@ -183,6 +186,23 @@ corner_radius_bottom_left = 5
 shadow_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
 shadow_size = 1
 shadow_offset = Vector2(1, 5)
+
+[sub_resource type="Theme" id="Theme_ivlxi"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 180
+Label/fonts/font = ExtResource("11_uqqiq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bh6pg"]
+texture = ExtResource("10_hccvh")
+texture_margin_left = 218.942
+texture_margin_top = 95.6645
+texture_margin_right = 101.609
+texture_margin_bottom = 198.093
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+region_rect = Rect2(-0.589344, 104.857, 960.589, 643.888)
 
 [sub_resource type="Theme" id="Theme_sdjic"]
 Label/colors/font_color = Color(1, 1, 1, 1)
@@ -478,6 +498,26 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ivi63")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sxmwe")
 text = "Voltar"
 
+[node name="arara" type="Sprite2D" parent="jogo/Control"]
+position = Vector2(952, 299)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_nsx4q")
+
+[node name="label_fala_personagem" type="Label" parent="jogo/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 856.0
+offset_top = 93.0
+offset_right = 2316.0
+offset_bottom = 900.0
+scale = Vector2(0.15, 0.15)
+theme = SubResource("Theme_ivlxi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bh6pg")
+text = "Boa! É isso aí!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="label_pontuacao_aumentou" type="Label" parent="jogo"]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 850.0
@@ -496,7 +536,6 @@ vertical_alignment = 1
 position = Vector2(143, 262)
 
 [node name="cenario_guarda" parent="." instance=ExtResource("9_6mpf6")]
-visible = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="point_sfx" type="AudioStreamPlayer" parent="."]
