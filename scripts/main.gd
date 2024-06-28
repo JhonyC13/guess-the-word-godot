@@ -104,6 +104,7 @@ func _ready():
 	
 	
 func _on_botao_voltar_pressed():
+	Global.pontuacao -= pontuacao_fase
 	TransitionManager.goto_scene("tela_fases", "rectangle") #muda para a cena da tela de fases
 
 func _on_botao_enviar_pressed():
@@ -165,13 +166,15 @@ func enviar_letra():
 			label_fala_personagem.text = frases_acertou[randi_range(0, frases_acertou.size()-1)]
 			var balao_fala_fadein = get_tree().create_tween()
 			balao_fala_fadein.tween_property(label_fala_personagem, "modulate:a", 1, 0.5)
-			await get_tree().create_timer(1.5).timeout
-			var balao_fala_fadeout = get_tree().create_tween()
-			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
+			
 			label_pontuacao_aumentou.text = "+" + str(Global.pontosLetra)
 			label_pontuacao_aumentou.global_position = letras_vazias[i].global_position
 			animation.play("pontuacao_aumentou")
-			await animation.animation_finished
+			await get_tree().create_timer(1.0).timeout
+			
+			var balao_fala_fadeout = get_tree().create_tween()
+			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
+			
 			Global.pontuacao += Global.pontosLetra
 			pontuacao_fase += Global.pontosLetra
 			Global.score_changed.emit()
@@ -184,6 +187,7 @@ func enviar_letra():
 			letra_enviada.editable = false
 			letra_enviada.release_focus()
 			botao_enviar.disabled = true
+			cenario_guarda.show()
 			var fade_tween = get_tree().create_tween() #tween para fazer um fade in na cena do guarda/fiscal
 			fade_tween.tween_property(cenario_guarda, "modulate:a", 1, 0.7)
 			await fade_tween.finished
@@ -194,6 +198,7 @@ func enviar_letra():
 			var fadeout_tween = get_tree().create_tween() #tween para fazer um fade out na cena do guarda/fiscal
 			fadeout_tween.tween_property(cenario_guarda, "modulate:a", 0, 0.5)
 			await fadeout_tween.finished
+			cenario_guarda.hide()
 			
 			label_fala_personagem.text = frases_errou[randi_range(0, frases_errou.size()-1)]
 			var balao_fala_fadein = get_tree().create_tween()

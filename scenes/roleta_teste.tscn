@@ -1,0 +1,482 @@
+[gd_scene load_steps=29 format=3 uid="uid://bflkabqtfdagv"]
+
+[ext_resource type="Texture2D" uid="uid://8k2sss7grlsm" path="res://assets/roleta.png" id="1_hymec"]
+[ext_resource type="Script" path="res://scripts/roleta_teste.gd" id="1_y8kly"]
+[ext_resource type="Texture2D" uid="uid://bxnqoq6cwvjtq" path="res://assets/seta_roleta.png" id="2_s50d7"]
+[ext_resource type="FontFile" uid="uid://dvsuh4jsu5je8" path="res://fonts/Comic-Art.ttf" id="4_2eamg"]
+[ext_resource type="AudioStream" uid="uid://cd4n0l5n511w7" path="res://sfx/476816__victorium183__menuchange.wav" id="5_gl6cl"]
+[ext_resource type="Texture2D" uid="uid://2ktl6ixtbmdv" path="res://assets/pilha_moedas.png" id="6_8hbj2"]
+[ext_resource type="AudioStream" uid="uid://dv2jpnijwyndp" path="res://sfx/roullete_win_sfx.MP3" id="7_8p73j"]
+[ext_resource type="AudioStream" uid="uid://blvi1kancvjnf" path="res://sfx/roullete_coins_sfx.MP3" id="7_ytg2v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouipg"]
+radius = 83.6693
+height = 415.994
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q223"]
+radius = 75.2578
+height = 444.123
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as62f"]
+radius = 78.924
+height = 418.838
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v8sa1"]
+radius = 85.8473
+height = 414.337
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e761"]
+size = Vector2(62.8572, 130)
+
+[sub_resource type="Theme" id="Theme_2hpl2"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("4_2eamg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqmc6"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef3t7"]
+bg_color = Color(0.381704, 0.381703, 0.381703, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2y01"]
+bg_color = Color(0.470076, 0.470076, 0.470076, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dptrn"]
+bg_color = Color(0.37414, 0.374139, 0.374139, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="Theme" id="Theme_5w1d3"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("4_2eamg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywtnb"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.270222, 0.270222, 0.270222, 0.682353)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0962049, 0.0962047, 0.0962047, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.572549, 0.572549, 0.572549, 0.215686)
+shadow_size = 50
+
+[sub_resource type="Curve" id="Curve_paskd"]
+_data = [Vector2(0, 0.43956), 0.0, 0.0, 0, 0, Vector2(0.208511, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.813187), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_je8iw"]
+offsets = PackedFloat32Array(0, 0.207729, 0.78744, 1)
+colors = PackedColorArray(0.658824, 0.658824, 0.658824, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_b5s62"]
+default_font = ExtResource("4_2eamg")
+default_font_size = 128
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(1, 0.819608, 0.552941, 1)
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 9
+Label/font_sizes/font_size = 128
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0mwp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+shadow_color = Color(1, 1, 0.494118, 0.133333)
+shadow_size = 20
+
+[sub_resource type="Animation" id="Animation_i8ker"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roleta:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texto_pontos/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("texto_pontos:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("particulas_moedas:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("coins_sfx:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("win_sfx:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jr2x8"]
+resource_name = "fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vt2jm"]
+resource_name = "ganhou"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texto_pontos/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.945098, 0, 0), Color(1, 0.945098, 0, 1), Color(1, 0.72549, 0, 1), Color(1, 0.945098, 0, 1), Color(1, 0.72549, 0, 1), Color(1, 0.945098, 0, 1), Color(1, 0.72549, 0, 1), Color(1, 0.945098, 0, 1), Color(1, 0.72549, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texto_pontos:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(3, 3), Vector2(2, 2), Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("particulas_moedas:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("coins_sfx:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("win_sfx:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ysig"]
+_data = {
+"RESET": SubResource("Animation_i8ker"),
+"fadein": SubResource("Animation_jr2x8"),
+"ganhou": SubResource("Animation_vt2jm")
+}
+
+[node name="roleta_teste" type="Node2D"]
+script = ExtResource("1_y8kly")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1184.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 0.615686)
+
+[node name="roleta" type="Node2D" parent="."]
+position = Vector2(587, 320)
+scale = Vector2(0.8, 0.8)
+
+[node name="textura" type="Sprite2D" parent="roleta"]
+texture = ExtResource("1_hymec")
+offset = Vector2(-12, 10)
+
+[node name="Azul" type="Area2D" parent="roleta" groups=["azul"]]
+collision_layer = 2
+
+[node name="colisao_azul" type="CollisionShape2D" parent="roleta/Azul"]
+position = Vector2(167.5, -173.75)
+rotation = -0.740361
+shape = SubResource("CapsuleShape2D_ouipg")
+
+[node name="Verde" type="Area2D" parent="roleta" groups=["verde"]]
+collision_layer = 2
+
+[node name="colisao_verde" type="CollisionShape2D" parent="roleta/Verde"]
+position = Vector2(-183.75, 172.5)
+rotation = -0.836639
+shape = SubResource("CapsuleShape2D_4q223")
+
+[node name="Vermelho" type="Area2D" parent="roleta" groups=["vermelho"]]
+collision_layer = 2
+
+[node name="colisao_vermelho" type="CollisionShape2D" parent="roleta/Vermelho"]
+position = Vector2(-170, -172.5)
+rotation = 0.757748
+shape = SubResource("CapsuleShape2D_as62f")
+
+[node name="Amarelo" type="Area2D" parent="roleta" groups=["amarelo"]]
+collision_layer = 2
+
+[node name="colisao_amarelo" type="CollisionShape2D" parent="roleta/Amarelo"]
+position = Vector2(167.5, 176.25)
+rotation = 0.74261
+shape = SubResource("CapsuleShape2D_v8sa1")
+
+[node name="seta_roleta" type="Area2D" parent="."]
+position = Vector2(588, 60)
+scale = Vector2(0.35, 0.35)
+collision_mask = 2
+
+[node name="textura" type="Sprite2D" parent="seta_roleta"]
+texture = ExtResource("2_s50d7")
+offset = Vector2(8, 1)
+
+[node name="raycast_seta" type="RayCast2D" parent="seta_roleta"]
+position = Vector2(0, -180)
+scale = Vector2(5, 5)
+target_position = Vector2(0, 65)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="colisao_sfx" type="CollisionShape2D" parent="seta_roleta"]
+position = Vector2(0, -54.9999)
+shape = SubResource("RectangleShape2D_6e761")
+
+[node name="botao_girar" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 80)
+offset_left = 910.0
+offset_top = 517.0
+offset_right = 1110.0
+offset_bottom = 597.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_2hpl2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vqmc6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ef3t7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j2y01")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dptrn")
+text = "Girar"
+
+[node name="label_padrao" type="Label" parent="."]
+custom_minimum_size = Vector2(350, 100)
+offset_left = 29.0
+offset_top = 22.0
+offset_right = 379.0
+offset_bottom = 122.0
+size_flags_horizontal = 0
+theme = SubResource("Theme_5w1d3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ywtnb")
+text = "A Próxima letra correta vai valer: "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="particulas_moedas" type="CPUParticles2D" parent="."]
+position = Vector2(587, 322)
+emitting = false
+amount = 10
+lifetime = 5.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.56
+texture = ExtResource("6_8hbj2")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 200)
+initial_velocity_min = 150.0
+initial_velocity_max = 350.0
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_paskd")
+color_ramp = SubResource("Gradient_je8iw")
+
+[node name="texto_pontos" type="Node2D" parent="."]
+position = Vector2(587, 320)
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="texto_pontos"]
+self_modulate = Color(1, 1, 0, 0)
+offset_left = -127.333
+offset_top = -74.6667
+offset_right = 122.667
+offset_bottom = 89.3333
+pivot_offset = Vector2(127, 75)
+theme = SubResource("Theme_b5s62")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0mwp")
+text = "+150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="roleta_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gl6cl")
+volume_db = -8.0
+
+[node name="coins_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ytg2v")
+volume_db = -18.0
+
+[node name="win_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8p73j")
+volume_db = -10.0
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ysig")
+}
+autoplay = "fadein"
+speed_scale = 0.5
+
+[connection signal="area_exited" from="seta_roleta" to="." method="_on_seta_roleta_area_exited"]
+[connection signal="pressed" from="botao_girar" to="." method="_on_botao_girar_pressed"]

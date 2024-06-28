@@ -40,8 +40,8 @@ func start_dialogue():
 	
 
 func _on_dialogue_ended():
-	player.set_process(true)
 	await get_tree().create_timer(0.2).timeout
+	player.set_process(true)
 	exclamacao_pc.show()
 	var pop_in_tween = get_tree().create_tween()
 	pop_in_tween.tween_property(exclamacao_pc, "scale", Vector2(1,1), 0.2)
