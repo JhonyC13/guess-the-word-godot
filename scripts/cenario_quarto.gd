@@ -6,9 +6,12 @@ extends Node2D
 @onready var colisao_pc = $area_pc/colisao_pc
 @onready var exclamacao_quadro = $exclamacao_quadro
 @onready var exclamacao_pc = $exclamacao_pc
+@onready var camera_pc: Camera2D = $camera_pc
+@onready var camera_quarto: Camera2D = $camera_quarto
 
 
 func _ready():
+	camera_quarto.make_current()
 	DialogueManager.connect("dialogue_ended", _on_dialogue_ended)
 	if Global.ponto_exclamacao_atual == 1:
 		colisao_pc.disabled = true
@@ -22,7 +25,8 @@ func _ready():
 
 
 func _on_area_pc_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and camera_quarto.is_current():
+		CameraTransitionManager.transition_camera2D(camera_quarto, camera_pc, false, 1.0)
 		TransitionManager.goto_scene("tela_fases", "rectangle")
 
 
@@ -48,6 +52,4 @@ func _on_dialogue_ended():
 	await pop_in_tween.finished
 	var pop_out_tween = get_tree().create_tween()
 	pop_out_tween.tween_property(exclamacao_pc, "scale", Vector2(0.5,0.5), 0.25)
-	
-	
 	

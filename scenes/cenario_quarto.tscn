@@ -96,5 +96,12 @@ rotation = 0.128184
 position = Vector2(-0.224733, 6.0786)
 shape = SubResource("RectangleShape2D_u7a1x")
 
+[node name="camera_pc" type="Camera2D" parent="."]
+position = Vector2(299, 310)
+zoom = Vector2(3, 3)
+
+[node name="camera_quarto" type="Camera2D" parent="."]
+position = Vector2(575, 325)
+
 [connection signal="body_entered" from="area_quadro" to="." method="_on_area_quadro_body_entered"]
 [connection signal="body_entered" from="area_pc" to="." method="_on_area_pc_body_entered"]

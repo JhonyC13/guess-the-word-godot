@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcup3k31ov41n"]
+
+[ext_resource type="Script" path="res://autoload/camera_transition_manager/camera_transition_manager.gd" id="1_x28w2"]
+
+[node name="CameraTransition" type="Node"]
+script = ExtResource("1_x28w2")
+
+[node name="transition_camera" type="Camera2D" parent="."]
+position = Vector2(576, 324)

@@ -200,13 +200,6 @@ func enviar_letra():
 			await fadeout_tween.finished
 			cenario_guarda.hide()
 			
-			label_fala_personagem.text = frases_errou[randi_range(0, frases_errou.size()-1)]
-			var balao_fala_fadein = get_tree().create_tween()
-			balao_fala_fadein.tween_property(label_fala_personagem, "modulate:a", 1, 0.5)
-			await get_tree().create_timer(1.5).timeout
-			var balao_fala_fadeout = get_tree().create_tween()
-			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
-			
 			imagem_camera.chances_gastas += 1
 			imagem_camera.atualizar_posicao() #atualiza a posição do fiscal na imagem da camera
 			
@@ -214,6 +207,14 @@ func enviar_letra():
 			botao_enviar.disabled = false
 			letra_enviada.editable = true
 			letra_enviada.grab_focus()
+			
+			label_fala_personagem.text = frases_errou[randi_range(0, frases_errou.size()-1)]
+			var balao_fala_fadein = get_tree().create_tween()
+			balao_fala_fadein.tween_property(label_fala_personagem, "modulate:a", 1, 0.5)
+			await get_tree().create_timer(1.5).timeout
+			var balao_fala_fadeout = get_tree().create_tween()
+			balao_fala_fadeout.tween_property(label_fala_personagem, "modulate:a", 0, 0.5)
+			
 			
 	elif esta_certa: #if para verificar se a letra esta certa
 		if cont_acertos >= palavra.size(): #if para verificar se o jogador já acertou todas as letras da palavra

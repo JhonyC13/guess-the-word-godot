@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://autoload/global.gd"
 TransitionManager="*res://autoload/transition_manager.gd"
 DialogueManager="*res://autoload/dialogue_manager.gd"
+CameraTransitionManager="*res://autoload/camera_transition_manager/camera_transition.tscn"
 
 [display]
 
